@@ -12,8 +12,13 @@ class AdminController extends Controller
 {
     
     public function AdminDashboard(Request $request){
+        
+        $user = User::selectRaw('count(id) as count, DATE_FORMAT(created_at, "%Y-%m") as month')->groupBy('month')->orderBy('month','asc')->get();
+        
+        $data['months'] = $user->pluck('month'); 
+        $data['counts'] = $user->pluck('count'); 
 
-        return view('admin.index');
+        return view('admin.index',$data);
     }
 
     public function AdminLogin(Request $request){

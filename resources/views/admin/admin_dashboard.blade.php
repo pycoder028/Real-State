@@ -84,5 +84,10 @@ License: For each use you must have a valid license purchased only from above li
   <script src="{{ asset('assets/js/dashboard-dark.js') }}"></script>
 	<!-- End custom js for this page -->
 
+	@yield('script')
+	<script type="text/javascript">
+
+	</script>
+
 </body>
 </html>  
