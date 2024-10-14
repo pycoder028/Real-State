@@ -28,6 +28,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('admin/profile',[AdminController::class,'admin_profile']);
     Route::post('admin_profile/update',[AdminController::class,'admin_profile_update']);
     Route::get('admin/users',[AdminController::class,'admin_users']);
+    Route::get('admin/users/view/{id}',[AdminController::class,'admin_users_view']);
 
 });
 
