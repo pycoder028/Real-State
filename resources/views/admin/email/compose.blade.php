@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="page-content">
-
+    @include('_message')
     <div class="row inbox-wrapper">
         <div class="col-lg-12">
             <div class="card">
@@ -102,8 +102,11 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-2 col-form-label">To:</label>
                                                 <div class="col-md-10">
-                                                    <select class="compose-multiple-select form-select" name="email">
-                                                        <option value="AL">Alabama</option>
+                                                    <select class="compose-multiple-select form-select" name="user_id">
+                                                        <option value="AL">Select Email [Agent and User]</option>
+                                                        @foreach ($getEmail as $value)
+                                                            <option value="{{ $value->id }}">{{ $value->email }} - {{ $value->role }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
